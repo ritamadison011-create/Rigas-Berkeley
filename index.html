@@ -1,13 +1,377 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Comprehensive SEO Meta Tags optimized for Oil & Gas industry -->
+  <title>RIGAS BERKELEY LLC | Certified Energy Infrastructure & Heavy Rigging Support</title>
+  <meta name="description" content="Founded in Chicago, RIGAS BERKELEY LLC delivers ASME-certified structural alloy metal fabrication, heavy crawler crane leasing up to 600 Tons, deepwater rig turnaround mechanical support, and API Spec Q1 compliant offshore personnel dispatch.">
+  <meta name="keywords" content="Rigas Berkeley, oil and gas, rig installation, rig maintenance, drilling support, heavy equipment rental Chicago, crawler crane leasing, industrial fabrication, pipeline support, ASME welding, API Spec Q1, Gulf of Mexico offshore turnaround, 24/7 operations, secure client document compliance portal">
+  <meta name="author" content="RIGAS BERKELEY LLC">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rigasberkeley.com/">
+  <meta property="og:title" content="RIGAS BERKELEY LLC | Certified Energy Infrastructure & Heavy Rigging">
+  <meta property="og:description" content="ASME-certified alloy fabrications, heavy crawler crane leasing, deepwater rig turnarounds, and secure digital compliance uploader. 24/7 dispatcher desk.">
+  <meta property="og:image" content="assets/images/hero_drilling_rig_1784077952777.jpg">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RIGAS BERKELEY LLC | Heavy Rigging & Energy Infrastructure">
+  <meta name="twitter:description" content="Chicago-based ASME-certified fabrication yards & heavy lease fleet serving offshore oil & gas operators worldwide.">
+  <meta name="twitter:image" content="assets/images/hero_drilling_rig_1784077952777.jpg">
+  
+  <!-- Custom Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#148062',
+              hover: '#10674E',
+              glow: 'rgba(20, 128, 98, 0.2)',
+            },
+            accent: {
+              DEFAULT: '#ff6a00',
+              hover: '#e05d00',
+              glow: 'rgba(255, 106, 0, 0.2)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#050B15] text-zinc-300 min-h-screen flex flex-col selection:bg-[#148062] selection:text-white">
 
+  <!-- ==================== HEADER SYSTEM ==================== -->
+  <header class="sticky top-0 z-40 bg-[#060b13]/90 backdrop-blur-md border-b border-zinc-800 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo / Identity -->
+      <a href="#" onclick="event.preventDefault(); navigateToTab('Home');" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 flex items-center justify-center rounded-sm overflow-hidden border border-zinc-800 bg-[#121214] shrink-0">
+          <img src="assets/images/rigas_berkeley_logo_1784076638029.jpg" alt="Rigas Berkeley Logo" class="w-full h-full object-cover group-hover:scale-105 transition-transform" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="hidden text-brand text-xl font-bold font-display uppercase italic">RB</span>
+        </div>
+        <div class="space-y-0.5">
+          <h1 class="text-sm font-display font-extrabold text-white tracking-widest leading-none group-hover:text-[#148062] transition-colors">RIGAS BERKELEY</h1>
+          <p class="text-[8px] font-mono text-[#148062] tracking-wider leading-none uppercase">Heavy Rigging & Compliance</p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-1.5" id="desktop-nav">
+        <!-- Injected dynamically by script.js -->
+      </nav>
+
+      <!-- Desktop Utility Right Side (RFP Button & Search) -->
+      <div class="hidden sm:flex items-center gap-4 shrink-0">
+        <!-- Get Scope & Fee Button -->
+        <button onclick="openQuoteModal();" class="bg-[#148062] hover:bg-[#10674E] text-white px-5 py-2 text-xs font-semibold rounded-lg transition-all font-sans cursor-pointer items-center gap-1.5 shadow-sm">
+          Get your scope & fee
+        </button>
+
+        <!-- Search Popover Button -->
+        <div class="relative">
+          <button onclick="toggleSearchBox();" class="p-2 bg-[#0a0f1a] hover:bg-zinc-900 border border-zinc-800 rounded-sm text-zinc-400 hover:text-white transition-colors" title="Search corporate catalog">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </button>
+          
+          <!-- Search Dropdown Box -->
+          <div id="search-dropdown" class="hidden absolute right-0 mt-3 w-72 bg-slate-950 border border-zinc-800 p-4 shadow-2xl z-50 space-y-3 rounded-md text-zinc-300">
+            <div class="relative">
+              <input type="text" id="search-input" oninput="handleSearch(this.value);" placeholder="Search services, specs, rigs..." class="w-full bg-[#050B15] border border-zinc-800 rounded-sm py-2 pl-3 pr-8 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#148062]">
+              <i data-lucide="search" class="absolute right-2.5 top-2.5 w-4 h-4 text-zinc-500"></i>
+            </div>
+            <div id="search-results" class="space-y-1.5 max-h-48 overflow-y-auto pr-1 text-[11px]">
+              <p class="text-zinc-500 italic text-center py-2">Type to search catalog...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu();" class="lg:hidden p-2 text-zinc-400 hover:text-white focus:outline-none" title="Toggle menu">
+        <i data-lucide="menu" id="mobile-menu-icon" class="w-6 h-6"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE MENU SLIDEOUT ==================== -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-30 flex">
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleMobileMenu();"></div>
+    <div class="relative flex flex-col w-full max-w-xs bg-[#050B15] border-r border-zinc-800 h-full p-6 space-y-6 overflow-y-auto">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 flex items-center justify-center rounded-sm overflow-hidden border border-zinc-800 bg-[#121214]">
+            <img src="assets/images/rigas_berkeley_logo_1784076638029.jpg" alt="Logo" class="w-full h-full object-cover">
+          </div>
+          <span class="text-xs font-display font-bold text-white tracking-widest">RIGAS BERKELEY</span>
+        </div>
+        <button onclick="toggleMobileMenu();" class="p-2 text-zinc-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Search Box -->
+      <div class="relative">
+        <input type="text" id="mobile-search-input" oninput="handleMobileSearch(this.value);" placeholder="Search catalog..." class="w-full bg-[#0a0f1a] border border-zinc-800 rounded-sm py-2 pl-3 pr-8 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-[#148062]">
+        <i data-lucide="search" class="absolute right-2.5 top-2.5 w-4 h-4 text-zinc-500"></i>
+        <div id="mobile-search-results" class="absolute left-0 right-0 mt-1 bg-slate-950 border border-zinc-800 rounded-sm shadow-xl z-50 max-h-40 overflow-y-auto hidden"></div>
+      </div>
+
+      <!-- Mobile Navigation links -->
+      <nav class="flex flex-col gap-1" id="mobile-nav-links">
+        <!-- Injected dynamically by script.js -->
+      </nav>
+
+      <!-- Mobile RFP CTA button -->
+      <div class="pt-6 border-t border-zinc-800 space-y-4">
+        <button onclick="toggleMobileMenu(); openQuoteModal();" class="w-full bg-[#148062] hover:bg-[#10674E] text-white py-3 text-xs font-mono font-bold rounded-lg uppercase tracking-wider text-center">
+          Get Scope & Fee RFP
+        </button>
+        <div class="text-center text-[10px] font-mono text-zinc-500">
+          CHICAGO OFFICE: +1 (312) 217-3841
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== MAIN CONTENT SYSTEM ==================== -->
+  <main class="flex-1 py-10 px-6 max-w-7xl mx-auto w-full">
+
+    <!-- HOME TAB PANEL -->
+    <div id="view-Home" class="view-panel space-y-16">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- ABOUT US TAB PANEL -->
+    <div id="view-About-Us" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- SERVICES TAB PANEL -->
+    <div id="view-Services" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- PROJECTS TAB PANEL -->
+    <div id="view-Projects" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- INDUSTRIES TAB PANEL -->
+    <div id="view-Industries" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- EQUIPMENT TAB PANEL -->
+    <div id="view-Equipment" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- SAFETY TAB PANEL -->
+    <div id="view-Safety" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- CAREERS TAB PANEL -->
+    <div id="view-Careers" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- NEWS TAB PANEL -->
+    <div id="view-News" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- GALLERY TAB PANEL -->
+    <div id="view-Gallery" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- CLIENT PORTAL TAB PANEL -->
+    <div id="view-Client-Portal" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- CONTACT TAB PANEL -->
+    <div id="view-Contact" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+    <!-- PRIVACY POLICY TAB PANEL -->
+    <div id="view-Privacy-Policy" class="view-panel space-y-16 hidden">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+  </main>
+
+
+  <!-- ==================== CORPORATE FOOTER SYSTEM ==================== -->
+  <footer class="bg-[#080c14] border-t border-zinc-800 pt-16 pb-8 px-6 text-zinc-500 text-xs font-sans">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 border-b border-zinc-800/60 pb-12">
+      
+      <!-- Left: Brand profile description -->
+      <div class="md:col-span-5 space-y-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 flex items-center justify-center rounded-sm overflow-hidden border border-zinc-800 bg-[#121214]">
+            <img src="assets/images/rigas_berkeley_logo_1784076638029.jpg" alt="Logo" class="w-full h-full object-cover">
+          </div>
+          <span class="text-sm font-display font-extrabold text-white tracking-widest">RIGAS BERKELEY</span>
+        </div>
+        <p class="text-zinc-400 text-xs leading-relaxed max-w-sm">
+          Founded in Chicago in 2020. Supplies AWS-certified welding fabrication, deepwater rig-up support personnel, high-capacity crawler crane leasing, and secure digital document compliance portals to petroleum majors worldwide.
+        </p>
+        <div class="flex gap-4 text-xs font-mono pt-2">
+          <div class="flex items-center gap-1 text-[#148062]">
+            <i data-lucide="shield" class="w-4 h-4"></i>
+            <span class="font-bold">ASME CERTIFIED</span>
+          </div>
+          <div class="flex items-center gap-1 text-[#148062]">
+            <i data-lucide="shield" class="w-4 h-4"></i>
+            <span class="font-bold">API-Q1 COMPLIANT</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center-Right: Quick Navigation links -->
+      <div class="md:col-span-3 space-y-4">
+        <h4 class="text-white font-mono uppercase tracking-wider text-xs font-bold border-b border-zinc-800 pb-1.5">Direct Directory</h4>
+        <ul class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs font-medium">
+          <li><a href="#" onclick="event.preventDefault(); navigateToTab('Home');" class="hover:text-white hover:underline">Corporate Main</a></li>
+          <li><a href="#" onclick="event.preventDefault(); navigateToTab('About Us');" class="hover:text-white hover:underline">Who We Are</a></li>
+          <li><a href="#" onclick="event.preventDefault(); navigateToTab('Services');" class="hover:text-white hover:underline">Specifications</a></li>
+          <li><a href="#" onclick="event.preventDefault(); navigateToTab('Projects');" class="hover:text-white hover:underline">Project Map</a></li>
+          <li><a href="#" onclick="event.preventDefault(); navigateToTab('Equipment');" class="hover:text-white hover:underline">Heavy Fleet</a></li>
+          <li><a href="#" onclick="event.preventDefault(); navigateToTab('Safety');" class="hover:text-white hover:underline">Zero Harm Plan</a></li>
+          <li><a href="#" onclick="event.preventDefault(); navigateToTab('Careers');" class="hover:text-white hover:underline">Open Roles</a></li>
+          <li><a href="#" onclick="event.preventDefault(); navigateToTab('Client Portal');" class="hover:text-white hover:underline text-[#148062]">Secure Vault</a></li>
+        </ul>
+      </div>
+
+      <!-- Right: Dispatcher Contact Coordinates -->
+      <div class="md:col-span-4 space-y-4 font-sans">
+        <h4 class="text-white font-mono uppercase tracking-wider text-xs font-bold border-b border-zinc-800 pb-1.5">Central Coordination</h4>
+        <div class="space-y-3 text-zinc-400">
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="map-pin" class="w-4 h-4 text-[#148062] shrink-0 mt-0.5"></i>
+            <span>6412 N. WASHTENAW, CHICAGO, IL 60645-0000</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="phone" class="w-4 h-4 text-[#148062] shrink-0"></i>
+            <span class="font-mono font-bold text-white">+1 (312) 217-3841</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <i data-lucide="mail" class="w-4 h-4 text-[#148062] shrink-0"></i>
+            <span class="font-mono text-zinc-300">operations@rigasberkeley.com</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Final Sub-Footer trademark & legal links -->
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center pt-8 text-[11px] font-mono gap-4">
+      <p class="text-zinc-600">
+        &copy; 2026 RIGAS BERKELEY LLC. All legal rights and trademark patents reserved.
+      </p>
+      <div class="flex gap-4">
+        <a href="#" onclick="event.preventDefault(); navigateToTab('Privacy Policy');" class="hover:text-zinc-300 hover:underline">Digital Compliance & Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================== RFP ESTIMATION REQUEST MODAL ==================== -->
+  <div id="quote-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <!-- Backdrop blur -->
+    <div class="absolute inset-0 bg-[#020617]/95 backdrop-blur-sm" onclick="closeQuoteModal();"></div>
+    
+    <!-- Modal container box -->
+    <div class="relative w-full max-w-2xl bg-[#0a0f1a] border border-zinc-800 rounded-lg shadow-2xl overflow-hidden max-h-[90vh] flex flex-col font-sans">
+      
+      <!-- Header -->
+      <div class="bg-slate-900 px-6 py-4 border-b border-zinc-800 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-mono tracking-widest text-[#ff6a00] font-bold uppercase">Engineering RFP Desk</span>
+          <h3 class="text-lg font-bold text-white tracking-tight">Request Strategic Rig Support & Quote</h3>
+        </div>
+        <button onclick="closeQuoteModal();" class="text-zinc-400 hover:text-white p-2 hover:bg-zinc-800 rounded-lg transition-all" title="Close RFP desk">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Content scroll box -->
+      <div class="flex-1 overflow-y-auto p-6" id="quote-modal-content">
+        <!-- Form injected/updated dynamically in script.js -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+  <a href="https://wa.me/13122173841" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-45 bg-[#25D366] hover:bg-[#128C7E] text-white p-3.5 rounded-full shadow-2xl transition-transform hover:scale-110 flex items-center justify-center group" title="Connect 24/7 with Chicago dispatchers">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.988 3.311 1.485 5.357 1.486 5.539 0 10.05-4.512 10.053-10.05.002-2.683-1.043-5.205-2.943-7.105-1.9-1.9-4.423-2.946-7.11-2.947-5.548 0-10.06 4.512-10.064 10.051-.001 1.916.49 3.791 1.423 5.422l-.993 3.626 3.714-.974zm13.111-7.251c-.302-.152-1.791-.883-2.07-.984-.277-.101-.48-.152-.68.152-.2.304-.777.984-.95 1.186-.174.201-.347.227-.649.076-.302-.152-1.274-.469-2.426-1.496-.895-.798-1.5-1.785-1.275-2.176.173-.303.3-.432.4-.534.1-.101.199-.203.3-.304.1-.101.149-.174.2-.304.05-.13-.025-.261-.088-.387-.063-.126-.48-1.157-.659-1.587-.174-.421-.348-.363-.48-.37l-.41-.008c-.141 0-.372.053-.566.265-.194.212-.741.724-.741 1.764s.755 2.046.86 2.186c.105.141 1.485 2.27 3.598 3.181.503.217.895.347 1.201.444.506.161.966.138 1.329.084.405-.06 1.791-.733 2.043-1.442.251-.708.251-1.314.175-1.442-.075-.126-.276-.201-.577-.353z"/>
+    </svg>
+    <span class="absolute right-14 bg-emerald-500 text-white text-[10px] font-mono px-2 py-1 rounded shadow-xl border border-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+      Chat 24/7 with Dispatch Desk
+    </span>
+  </a>
+
+
+  <!-- ==================== PHOTO LIGHTBOX SYSTEM ==================== -->
+  <div id="lightbox" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-sm" onclick="closeLightbox();"></div>
+    <button onclick="closeLightbox();" class="absolute top-6 right-6 text-white p-3 hover:bg-zinc-900 rounded-full transition-all" title="Close Lightbox">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <button onclick="prevLightboxImage();" class="absolute left-6 text-white p-3 hover:bg-zinc-900 rounded-full transition-all" title="Previous Image">
+      <i data-lucide="chevron-left" class="w-8 h-8"></i>
+    </button>
+    <button onclick="nextLightboxImage();" class="absolute right-6 text-white p-3 hover:bg-zinc-900 rounded-full transition-all" title="Next Image">
+      <i data-lucide="chevron-right" class="w-8 h-8"></i>
+    </button>
+    
+    <div class="relative max-w-4xl w-full max-h-[80vh] flex flex-col items-center justify-center">
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[70vh] object-contain rounded border border-zinc-800 shadow-2xl">
+      <div class="mt-4 text-center space-y-1 text-white max-w-xl">
+        <h4 id="lightbox-title" class="text-sm font-bold uppercase tracking-wider"></h4>
+        <p id="lightbox-desc" class="text-xs text-zinc-400"></p>
+        <span id="lightbox-counter" class="text-[10px] font-mono text-[#148062] block"></span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== JAVASCRIPT SYSTEMS ==================== -->
+  <!-- Lucide Icon Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Reactive SPA controller scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
