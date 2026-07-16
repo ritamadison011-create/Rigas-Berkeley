@@ -25,6 +25,32 @@ export default defineConfig(() => {
       react(), 
       tailwindcss(),
       {
+        name: 'serve-assets-dev',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            const urlPath = req.url ? req.url.split('?')[0] : '';
+            if (urlPath.startsWith('/assets/images/')) {
+              const filePath = path.resolve(__dirname, urlPath.slice(1));
+              if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+                const ext = path.extname(filePath).toLowerCase();
+                const contentTypes: Record<string, string> = {
+                  '.jpg': 'image/jpeg',
+                  '.jpeg': 'image/jpeg',
+                  '.png': 'image/png',
+                  '.gif': 'image/gif',
+                  '.svg': 'image/svg+xml',
+                  '.webp': 'image/webp'
+                };
+                res.setHeader('Content-Type', contentTypes[ext] || 'application/octet-stream');
+                res.end(fs.readFileSync(filePath));
+                return;
+              }
+            }
+            next();
+          });
+        }
+      },
+      {
         name: 'copy-static-assets',
         closeBundle() {
           const distDir = path.resolve(__dirname, 'dist');
