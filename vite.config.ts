@@ -20,6 +20,7 @@ function copyDir(src: string, dest: string) {
 
 export default defineConfig(() => {
   return {
+    base: './',
     plugins: [
       react(), 
       tailwindcss(),
