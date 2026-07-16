@@ -37,7 +37,7 @@ export const companyDetails = {
   founded: 2020,
   address: "6412 N. WASHTENAW, CHICAGO, IL 60645-0000",
   phone: "+1 (312) 217-3841",
-  email: "operations@rigasberkeley.com",
+  email: "support@rigasberkeley.com",
   portalEmail: "portal-security@rigasberkeley.com",
   hours: {
     weekly: "Mon - Fri: 8:00 AM - 5:00 PM CST",

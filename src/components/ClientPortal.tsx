@@ -43,7 +43,7 @@ export default function ClientPortal() {
   const [uploadProgress, setUploadProgress] = useState(0);
 
   // Demo credential helper
-  const demoEmail = 'operations@rigasberkeley.com';
+  const demoEmail = 'support@rigasberkeley.com';
   const demoPin = '2020';
 
   const handleLogin = (e: React.FormEvent) => {

@@ -1442,7 +1442,7 @@ function renderContact(container) {
             <i data-lucide="mail" class="w-4 h-4 text-[#148062] shrink-0"></i>
             <div class="text-xs text-zinc-300">
               <p class="font-bold text-white">Direct Operations Email</p>
-              <p class="font-mono">operations@rigasberkeley.com</p>
+              <p class="font-mono">support@rigasberkeley.com</p>
             </div>
           </div>
         </div>
