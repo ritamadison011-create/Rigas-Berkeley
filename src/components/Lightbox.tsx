@@ -81,14 +81,11 @@ export default function LightboxGallery() {
             className="group bg-[#121214] border border-zinc-800 rounded-none overflow-hidden cursor-pointer hover:border-[#148062] transition-all duration-300 flex flex-col justify-between"
           >
             {/* Image frame */}
-            <div className="relative aspect-video sm:aspect-square overflow-hidden bg-[#0A0A0B]">
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                className="w-full h-full object-cover grayscale opacity-75 group-hover:opacity-100 group-hover:scale-102 transition-transform duration-500"
-                referrerPolicy="no-referrer"
-                loading="lazy"
-              />
+            <div className="relative aspect-video sm:aspect-square overflow-hidden bg-gradient-to-br from-[#0c1322] to-[#040811] flex flex-col items-center justify-center p-4 text-center">
+              <div className="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                <Eye className="w-5 h-5" />
+              </div>
+              <span className="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase mb-1">ARCHIVE ID: {item.id.toUpperCase()}</span>
               
               {/* Overlay hover effect */}
               <div className="absolute inset-0 bg-[#0A0A0B]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -144,16 +141,17 @@ export default function LightboxGallery() {
             </button>
 
             {/* Active Image Box */}
-            <div className="relative max-h-full max-w-full rounded-none overflow-hidden border border-zinc-800 bg-[#0A0A0B] shadow-2xl flex items-center justify-center">
-              <img
-                src={activeImage.imageUrl}
-                alt={activeImage.title}
-                className="max-h-[65vh] max-w-full object-contain animate-scale-in"
-                referrerPolicy="no-referrer"
-              />
+            <div className="relative w-full max-w-md aspect-video rounded-sm overflow-hidden border border-zinc-800 bg-gradient-to-tr from-[#020617] to-slate-900 shadow-2xl flex flex-col items-center justify-center p-8 text-center space-y-4">
+              <div className="w-14 h-14 rounded-full bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] animate-pulse">
+                <Eye className="w-6 h-6" />
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-mono tracking-widest text-[#148062] font-bold uppercase">SECURED MEDIA INTERCEPTED</span>
+                <h4 className="text-xs font-bold text-white uppercase tracking-wider">{activeImage.title}</h4>
+              </div>
               <span className="absolute top-4 left-4 bg-[#148062] text-white text-[9px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-none uppercase flex items-center gap-1.5 shadow">
                 <ZoomIn className="w-3 h-3" />
-                OPERATIONAL PHOTO PREVIEW // RIGAS BERKELEY
+                CLASSIFIED PREVIEW DEFERRED // RIGAS BERKELEY
               </span>
             </div>
 

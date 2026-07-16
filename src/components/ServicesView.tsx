@@ -81,13 +81,11 @@ export default function ServicesView({ onOpenQuote }: ServicesViewProps) {
               </p>
             </div>
             
-            <div className="md:col-span-4 aspect-video sm:aspect-square rounded-sm overflow-hidden bg-[#050B15] border border-gray-800">
-              <img
-                src={selectedService.imageUrl}
-                alt={selectedService.title}
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+            <div className="md:col-span-4 aspect-video sm:aspect-square rounded-sm overflow-hidden bg-gradient-to-br from-[#0c1322] to-[#040811] border border-gray-800 flex flex-col items-center justify-center p-6 text-center">
+              <div className="w-12 h-12 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-3">
+                <Wrench className="w-6 h-6 animate-pulse" />
+              </div>
+              <span className="text-[9px] font-mono tracking-widest text-zinc-500 font-bold uppercase">SERVICE CODE // RB-{selectedService.id.toUpperCase()}</span>
             </div>
           </div>
 
@@ -182,14 +180,11 @@ export default function ServicesView({ onOpenQuote }: ServicesViewProps) {
                 onClick={() => setSelectedService(service)}
                 className="bg-[#0a0f1a] hover:bg-[#0d1424] border border-gray-800 hover:border-gray-700 rounded-sm overflow-hidden cursor-pointer transition-all duration-200 flex flex-col justify-between group h-full"
               >
-                <div className="aspect-video bg-[#050B15] overflow-hidden relative">
-                  <img
-                    src={service.imageUrl}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
+                <div className="aspect-video bg-gradient-to-br from-[#0c1322] to-[#040811] overflow-hidden relative flex flex-col items-center justify-center p-4 text-center">
+                  <div className="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                    <Wrench className="w-5 h-5" />
+                  </div>
+                  <span className="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase mb-1">SERVICE CODE // RB-{service.id.toUpperCase()}</span>
                   <span className="absolute top-3 left-3 bg-[#050B15]/90 text-[9px] font-mono text-[#148062] font-bold px-2.5 py-1 rounded-sm border border-gray-800 uppercase">
                     {service.category}
                   </span>

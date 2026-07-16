@@ -65,14 +65,11 @@ export default function ProjectsView() {
               className="bg-[#0a0f1a] hover:bg-[#0d1424] border border-gray-800 rounded-sm overflow-hidden flex flex-col justify-between group transition-all"
             >
               {/* Image box */}
-              <div className="aspect-video bg-[#050B15] overflow-hidden relative">
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                />
+              <div className="aspect-video bg-gradient-to-br from-[#0a0f1d] to-[#040811] overflow-hidden relative flex flex-col items-center justify-center p-4 text-center">
+                <div className="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                  <Compass className="w-5 h-5" />
+                </div>
+                <span className="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase mb-1">PROJECT ID: {project.id.toUpperCase()}</span>
                 <div className="absolute top-4 left-4 flex gap-1.5 z-10">
                   <span className={`px-2 py-0.5 rounded-sm text-[9px] font-mono font-bold uppercase ${
                     project.status === 'Completed'

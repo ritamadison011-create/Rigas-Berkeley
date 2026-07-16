@@ -52,13 +52,11 @@ export default function NewsView() {
           </div>
 
           {/* Featured Image */}
-          <div className="aspect-video rounded-sm overflow-hidden bg-[#050B15] border border-gray-800 max-h-[350px]">
-            <img
-              src={selectedArticle.imageUrl}
-              alt={selectedArticle.title}
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
+          <div className="aspect-video rounded-sm overflow-hidden bg-gradient-to-br from-[#0c1322] to-[#040811] border border-gray-800 max-h-[350px] flex flex-col items-center justify-center p-6 text-center">
+            <div className="w-16 h-16 rounded-full bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-3">
+              <Newspaper className="w-8 h-8 animate-pulse" />
+            </div>
+            <span className="text-[10px] font-mono tracking-widest text-zinc-500 font-bold uppercase">SECURED BROADCAST LOG RB-{selectedArticle.id.toUpperCase()}</span>
           </div>
 
           {/* Article text body */}
@@ -97,14 +95,11 @@ export default function NewsView() {
                 onClick={() => setSelectedArticle(article)}
                 className="bg-[#0a0f1a] hover:bg-[#0d1424] border border-gray-800 hover:border-gray-700 rounded-sm overflow-hidden cursor-pointer transition-all duration-200 flex flex-col justify-between group"
               >
-                <div className="aspect-video bg-[#050B15] overflow-hidden relative">
-                  <img
-                    src={article.imageUrl}
-                    alt={article.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
+                <div className="aspect-video bg-gradient-to-br from-[#0c1322] to-[#040811] overflow-hidden relative flex flex-col items-center justify-center p-4 text-center">
+                  <div className="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                    <Newspaper className="w-5 h-5" />
+                  </div>
+                  <span className="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase mb-1">PRESS LOG // RB-{article.id.toUpperCase()}</span>
                   <span className="absolute top-4 left-4 bg-[#050B15]/90 text-[9px] font-mono text-[#148062] font-bold px-2.5 py-0.5 rounded-sm border border-gray-800/80 uppercase">
                     {article.category}
                   </span>

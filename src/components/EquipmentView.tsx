@@ -62,13 +62,11 @@ export default function EquipmentView() {
               </p>
             </div>
             
-            <div className="md:col-span-4 aspect-video sm:aspect-square rounded-sm overflow-hidden bg-[#050B15] border border-gray-800">
-              <img
-                src={selectedEquip.imageUrl}
-                alt={selectedEquip.name}
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+            <div className="md:col-span-4 aspect-video sm:aspect-square rounded-sm overflow-hidden bg-gradient-to-br from-[#0c1322] to-[#040811] border border-gray-800 flex flex-col items-center justify-center p-6 text-center">
+              <div className="w-12 h-12 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-3">
+                <Cpu className="w-6 h-6 animate-pulse" />
+              </div>
+              <span className="text-[9px] font-mono tracking-widest text-zinc-500 font-bold uppercase">FLEET SPEC REG. RB-{selectedEquip.id.toUpperCase()}</span>
             </div>
           </div>
 
@@ -178,14 +176,11 @@ export default function EquipmentView() {
                 onClick={() => setSelectedEquip(equip)}
                 className="bg-[#0a0f1a] hover:bg-[#0d1424] border border-gray-800 hover:border-gray-700 rounded-sm overflow-hidden cursor-pointer transition-all duration-200 flex flex-col justify-between group h-full"
               >
-                <div className="aspect-video bg-[#050B15] overflow-hidden relative">
-                  <img
-                    src={equip.imageUrl}
-                    alt={equip.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
+                <div className="aspect-video bg-gradient-to-br from-[#0c1322] to-[#040811] overflow-hidden relative flex flex-col items-center justify-center p-4 text-center">
+                  <div className="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                    <Cpu className="w-5 h-5" />
+                  </div>
+                  <span className="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase mb-1">FLEET ID: {equip.id.toUpperCase()}</span>
                   <span className="absolute bottom-3 left-3 bg-[#050B15]/80 backdrop-blur-sm border border-gray-800/80 px-2 py-0.5 rounded-sm text-[9px] font-mono font-bold text-gray-300 uppercase">
                     {equip.category}
                   </span>

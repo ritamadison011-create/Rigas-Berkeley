@@ -121,10 +121,7 @@ const navigationItems = [
   { label: "Industries", icon: "compass" },
   { label: "Equipment", icon: "settings" },
   { label: "Safety", icon: "shield-alert" },
-  { label: "Careers", icon: "user-check" },
   { label: "News", icon: "newspaper" },
-  { label: "Gallery", icon: "image" },
-  { label: "Client Portal", icon: "lock" },
   { label: "Contact", icon: "mail" }
 ];
 
@@ -208,17 +205,8 @@ function renderTabContent(tabId) {
     case "Safety":
       renderSafety(container);
       break;
-    case "Careers":
-      renderCareers(container);
-      break;
     case "News":
       renderNews(container);
-      break;
-    case "Gallery":
-      renderGallery(container);
-      break;
-    case "Client Portal":
-      renderClientPortal(container);
       break;
     case "Contact":
       renderContact(container);
@@ -247,15 +235,22 @@ function renderHome(container) {
           <button onclick="navigateToTab('Services')" class="bg-[#148062] hover:bg-[#10674E] text-white px-6 py-3 text-xs font-bold font-mono uppercase tracking-wider rounded-lg transition-all cursor-pointer">
             Explore Services
           </button>
-          <button onclick="navigateToTab('Client Portal')" class="border border-zinc-700 bg-transparent hover:bg-zinc-900 text-white px-6 py-3 text-xs font-bold font-mono uppercase tracking-wider rounded-lg transition-all cursor-pointer">
-            Access Vault Portal
+          <button onclick="openQuoteModal();" class="border border-zinc-700 bg-transparent hover:bg-zinc-900 text-white px-6 py-3 text-xs font-bold font-mono uppercase tracking-wider rounded-lg transition-all cursor-pointer">
+            Contact Dispatch
           </button>
         </div>
       </div>
-      <div class="md:w-1/2 aspect-video md:aspect-[4/3] rounded-xl overflow-hidden border border-zinc-850 relative">
-        <img src="assets/images/hero_drilling_rig_new_1784166672041.jpg" alt="Active Rig drilling floor" class="w-full h-full object-cover">
-        <div class="absolute bottom-4 left-4 bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 px-3 py-1.5 rounded-sm text-[10px] font-mono text-zinc-400">
-          OFFSHORE DISPATCH DECK ACTIVE
+      <div class="md:w-1/2 aspect-video md:aspect-[4/3] rounded-xl overflow-hidden border border-zinc-850 relative bg-gradient-to-br from-slate-900 to-[#020617] flex flex-col items-center justify-center p-6 text-center space-y-4">
+        <div class="w-16 h-16 rounded-full bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] animate-pulse">
+          <i data-lucide="activity" class="w-8 h-8"></i>
+        </div>
+        <div class="space-y-1">
+          <span class="text-[10px] font-mono tracking-widest text-[#148062] font-bold uppercase">RIGAS BERKELEY OPERATIVE NETWORK</span>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">OFFSHORE HEAVY DISPATCH HUB</h4>
+        </div>
+        <div class="absolute bottom-4 left-4 bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 px-3 py-1.5 rounded-sm text-[10px] font-mono text-zinc-400 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#148062] animate-ping"></span>
+          <span>DISPATCH DECK ACTIVE</span>
         </div>
       </div>
     </div>
@@ -396,11 +391,13 @@ function renderAbout(container) {
           <p>We work exclusively with elite clients to maintain mechanical safety clearances, ensuring that all deepwater turnarounds pass rigorous non-destructive evaluations on the first attempt.</p>
         </div>
 
-        <div class="aspect-video w-full rounded-lg overflow-hidden border border-zinc-800 relative bg-zinc-950">
-          <img src="assets/images/hero_blueprint_review_new_1784166684154.jpg" alt="Metal fabrication yard review" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-5">
-            <span class="text-[10px] font-mono text-[#148062] uppercase">Compliance Checklist Desk</span>
-            <h5 class="text-xs font-bold text-white font-sans uppercase">ISO-9001 and API SPEC Q1 Registered Management</h5>
+        <div class="aspect-video w-full rounded-lg overflow-hidden border border-zinc-800 relative bg-gradient-to-tr from-[#020617] to-slate-900 flex flex-col items-center justify-center p-6 text-center space-y-3">
+          <div class="w-14 h-14 rounded-full bg-[#148062]/10 border border-[#148062]/20 flex items-center justify-center text-[#148062]">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-1">
+            <span class="text-[10px] font-mono tracking-widest text-[#148062] font-bold uppercase">ASME SECTION VIII COMPLIANT</span>
+            <h5 class="text-xs font-bold text-white font-sans uppercase">ISO-9001 AND API SPEC Q1 MANAGEMENT</h5>
           </div>
         </div>
       </div>
@@ -807,8 +804,11 @@ function renderEquipment(container) {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         ${filteredItems.map(equip => `
           <div class="bg-[#0a0f1a] border border-zinc-800 rounded-sm overflow-hidden hover:border-zinc-700 transition-all flex flex-col justify-between">
-            <div class="aspect-video bg-[#050B15] relative overflow-hidden">
-              <img src="${equip.imageUrl}" alt="${equip.name}" class="w-full h-full object-cover">
+            <div class="aspect-video bg-gradient-to-br from-[#0c1322] to-[#040811] relative overflow-hidden flex flex-col items-center justify-center p-4 text-center">
+              <div class="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                <i data-lucide="wrench" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase mb-1">FLEET ID: ${equip.id.toUpperCase()}</span>
               <span class="absolute bottom-2 left-2 bg-zinc-950/80 backdrop-blur-sm border border-zinc-800/85 px-2 py-0.5 rounded-sm text-[9px] font-mono font-bold text-[#148062] uppercase">
                 ${equip.category}
               </span>
@@ -861,8 +861,11 @@ function viewEquipmentSpecs(equipId) {
           <h3 class="text-2xl font-serif font-bold text-white uppercase italic tracking-tight">${equip.name}</h3>
           <p class="text-[11px] text-zinc-500 font-sans">Full mechanical evaluation and dimensional data sheet registered to Rigas Berkeley LLC logistics networks.</p>
         </div>
-        <div class="md:col-span-4 aspect-video rounded-sm overflow-hidden border border-zinc-850 bg-zinc-950">
-          <img src="${equip.imageUrl}" alt="${equip.name}" class="w-full h-full object-cover">
+        <div class="md:col-span-4 aspect-video rounded-sm overflow-hidden border border-zinc-850 bg-gradient-to-br from-[#0c1322] to-[#040811] flex flex-col items-center justify-center p-4 text-center">
+          <div class="w-12 h-12 rounded-sm bg-[#148062]/15 border border-[#148062]/40 flex items-center justify-center text-[#148062] mb-2 animate-pulse">
+            <i data-lucide="cpu" class="w-6 h-6"></i>
+          </div>
+          <span class="text-[8px] font-mono tracking-widest text-zinc-500 font-bold uppercase">CAD SPEC SHEET REG.</span>
         </div>
       </div>
 
@@ -1791,8 +1794,11 @@ function renderGallery(container) {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         ${galleryData.map((img, idx) => `
           <div onclick="openLightbox(${idx});" class="bg-[#0a0f1a] border border-zinc-800 rounded-sm overflow-hidden cursor-pointer hover:border-zinc-700 transition-all group">
-            <div class="aspect-video bg-[#050B15] relative overflow-hidden">
-              <img src="${img.imageUrl}" alt="${img.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="aspect-video bg-gradient-to-br from-[#0a0f1d] to-[#040811] relative overflow-hidden flex flex-col items-center justify-center p-4 text-center">
+              <div class="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                <i data-lucide="image" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase mb-1">ARCHIVE ID: ${img.id.toUpperCase()}</span>
               <span class="absolute bottom-2 left-2 bg-zinc-950/80 backdrop-blur-sm border border-zinc-800/80 px-2 py-0.5 rounded text-[8px] font-mono font-bold text-zinc-400 uppercase">
                 ${img.category}
               </span>
@@ -1820,8 +1826,11 @@ function renderNews(container) {
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         ${newsArticlesData.map(art => `
           <div class="bg-[#0a0f1a] border border-zinc-800 rounded-sm overflow-hidden flex flex-col justify-between">
-            <div class="aspect-video bg-[#050B15] relative overflow-hidden">
-              <img src="${art.imageUrl}" alt="${art.title}" class="w-full h-full object-cover">
+            <div class="aspect-video bg-gradient-to-br from-[#0a0f1d] to-[#040811] relative overflow-hidden flex flex-col items-center justify-center p-4 text-center">
+              <div class="w-8 h-8 rounded-sm bg-[#148062]/10 border border-[#148062]/20 flex items-center justify-center text-[#148062] mb-1">
+                <i data-lucide="newspaper" class="w-4 h-4"></i>
+              </div>
+              <span class="text-[7px] font-mono tracking-widest text-[#148062] font-bold uppercase mb-1">PRESS LOG: ${art.id.toUpperCase()}</span>
               <span class="absolute top-2 left-2 bg-[#050B15]/80 backdrop-blur-sm border border-zinc-800 px-2 py-0.5 rounded text-[8px] font-mono font-bold text-zinc-400 uppercase">
                 ${art.category}
               </span>
@@ -1863,8 +1872,11 @@ function viewNewsDetail(artId) {
         <p class="text-xs font-mono text-zinc-500">Report Compiled by: ${art.author}</p>
       </div>
 
-      <div class="aspect-video w-full rounded overflow-hidden border border-zinc-850">
-        <img src="${art.imageUrl}" alt="${art.title}" class="w-full h-full object-cover">
+      <div class="aspect-video w-full rounded overflow-hidden border border-zinc-850 bg-gradient-to-br from-[#0c1322] to-[#040811] flex flex-col items-center justify-center p-6 text-center">
+        <div class="w-14 h-14 rounded-full bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-3">
+          <i data-lucide="newspaper" class="w-7 h-7"></i>
+        </div>
+        <span class="text-[9px] font-mono tracking-widest text-zinc-400 font-bold uppercase">REPORT MEDIA DEFERRED</span>
       </div>
 
       <div class="text-xs text-zinc-300 leading-relaxed font-sans space-y-4 pt-2">
@@ -1885,12 +1897,41 @@ function openLightbox(idx) {
   
   if (modal && img) {
     const data = galleryData[currentLightboxIdx];
-    img.src = data.imageUrl;
+    img.src = "";
+    img.style.display = "none";
+    
+    let placeholder = document.getElementById("lightbox-placeholder");
+    if (!placeholder) {
+      placeholder = document.createElement("div");
+      placeholder.id = "lightbox-placeholder";
+      placeholder.className = "w-full max-w-md aspect-video rounded-lg bg-gradient-to-tr from-[#020617] to-slate-900 border border-zinc-800 flex flex-col items-center justify-center p-8 text-center space-y-4 shadow-2xl mb-4";
+      placeholder.innerHTML = `
+        <div class="w-16 h-16 rounded-full bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] animate-pulse">
+          <i data-lucide="shield-alert" class="w-8 h-8"></i>
+        </div>
+        <div class="space-y-1">
+          <span class="text-[10px] font-mono tracking-widest text-[#148062] font-bold uppercase">SECURED OPERATIONS ARCHIVE</span>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider" id="lightbox-placeholder-title"></h4>
+        </div>
+      `;
+      img.parentNode.insertBefore(placeholder, img);
+    }
+    
+    const pTitle = document.getElementById("lightbox-placeholder-title");
+    if (pTitle) {
+      pTitle.innerText = data.title;
+    }
+    
     title.innerText = data.title;
     desc.innerText = data.description;
     counter.innerText = `ASSET ${currentLightboxIdx + 1} OF ${galleryData.length} | CLASSIFIED LOG`;
     
     modal.classList.remove("hidden");
+    
+    // Re-trigger Lucide icon replacement inside the placeholder
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
   }
 }
 

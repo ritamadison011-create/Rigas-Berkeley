@@ -4,7 +4,7 @@
  */
 
 import { useState } from 'react';
-import { Award, ShieldAlert, CheckCircle, Clock, Users, ArrowUpRight, Zap, Target } from 'lucide-react';
+import { Award, ShieldAlert, CheckCircle, Clock, Users, ArrowUpRight, Zap, Target, Cpu } from 'lucide-react';
 import { companyDetails } from '../data';
 
 export default function AboutView() {
@@ -66,13 +66,14 @@ export default function AboutView() {
           </div>
         </div>
 
-        <div className="lg:col-span-6 aspect-video rounded-sm overflow-hidden bg-[#0a0f1a] border border-gray-800 shadow-2xl relative">
-          <img
-            src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800"
-            alt="Engineering Lab"
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
+        <div className="lg:col-span-6 aspect-video rounded-sm overflow-hidden bg-gradient-to-br from-[#0c1322] to-[#040811] border border-gray-800 shadow-2xl relative flex flex-col items-center justify-center p-6 text-center space-y-4">
+          <div className="w-14 h-14 rounded-full bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] animate-pulse">
+            <Cpu className="w-7 h-7" />
+          </div>
+          <div className="space-y-1">
+            <span className="text-[10px] font-mono tracking-widest text-[#148062] font-bold uppercase">CAD/CAM COMPLIANCE MODEL</span>
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider">RIGAS BERKELEY RIG LABS</h4>
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
             <div className="text-xs font-mono text-gray-400">
               Rig design lab - RIGAS BERKELEY Chicago Yards

@@ -50,13 +50,11 @@ export default function SafetyView() {
         <div className="lg:col-span-5 relative">
           <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-sm blur opacity-15"></div>
           <div className="relative bg-[#0a0f1a] border border-gray-800 rounded-sm p-6 space-y-6">
-            <div className="aspect-video rounded-sm overflow-hidden bg-[#050B15] border border-gray-850">
-              <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600"
-                alt="Engineers wearing PPE"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+            <div className="aspect-video rounded-sm overflow-hidden bg-gradient-to-br from-[#0c1322] to-[#040811] border border-gray-850 flex flex-col items-center justify-center p-4 text-center">
+              <div className="w-10 h-10 rounded-full bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2 animate-bounce">
+                <HardHat className="w-5 h-5" />
+              </div>
+              <span className="text-[9px] font-mono tracking-widest text-[#148062] font-bold uppercase">ZERO INCIDENT ZONE</span>
             </div>
             <div className="space-y-1">
               <h4 className="text-xs font-bold text-white uppercase tracking-wider">Unconditional Stop Work Authority</h4>

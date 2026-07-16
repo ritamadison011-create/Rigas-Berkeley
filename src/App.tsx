@@ -29,9 +29,7 @@ import ProjectsView from './components/ProjectsView';
 import IndustriesView from './components/IndustriesView';
 import EquipmentView from './components/EquipmentView';
 import SafetyView from './components/SafetyView';
-import CareersView from './components/CareersView';
 import NewsView from './components/NewsView';
-import GalleryView from './components/GalleryView';
 import ContactView from './components/ContactView';
 import PrivacyView from './components/PrivacyView';
 
@@ -112,9 +110,7 @@ export default function App() {
     'Industries',
     'Equipment',
     'Safety',
-    'Careers',
     'News',
-    'Gallery',
     'Contact',
     'Privacy Policy'
   ];
@@ -372,14 +368,8 @@ export default function App() {
         {activeTab === 'Safety' && (
           <SafetyView />
         )}
-        {activeTab === 'Careers' && (
-          <CareersView />
-        )}
         {activeTab === 'News' && (
           <NewsView />
-        )}
-        {activeTab === 'Gallery' && (
-          <GalleryView />
         )}
         {activeTab === 'Contact' && (
           <ContactView onOpenQuote={() => setIsQuoteModalOpen(true)} />

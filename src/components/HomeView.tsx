@@ -50,13 +50,7 @@ export default function HomeView({ onNavigate, onOpenQuote }: HomeViewProps) {
       {/* 1. Hero / Introduction section - VELOCITY STUDIO CLONE LAYOUT */}
       <section className="relative min-h-[580px] lg:min-h-[640px] flex items-center overflow-hidden border-b border-zinc-800/80 bg-black">
         {/* Rig background picture */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={heroRigImg}
-            alt="Drilling Rig Background"
-            className="w-full h-full object-cover opacity-25 object-center"
-            referrerPolicy="no-referrer"
-          />
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-zinc-950 via-slate-950 to-black">
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"></div>
         </div>
         {/* Subtle grid accent background */}
@@ -104,12 +98,15 @@ export default function HomeView({ onNavigate, onOpenQuote }: HomeViewProps) {
           {/* Right Column (Hero card with gold PRICE overlay matching screenshot) */}
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/3] sm:aspect-square md:aspect-[4/3] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0B] border border-zinc-800 shadow-2xl group">
-              <img
-                src={blueprintReviewImg}
-                alt="Rigas Berkeley Engineering Review"
-                className="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
+              <div className="w-full h-full bg-gradient-to-br from-slate-900 to-[#020617] flex flex-col items-center justify-center p-8 text-center space-y-4">
+                <div className="w-16 h-16 rounded-full bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] animate-pulse">
+                  <Cpu className="w-8 h-8" />
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-mono tracking-widest text-[#148062] font-bold uppercase">ASME SECTION VIII CERTIFIED</span>
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">RIGAS BERKELEY OPERATIONS LOG</h4>
+                </div>
+              </div>
               
               {/* Subtle top indicator tag */}
               <span className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-md border border-zinc-800 text-[9px] font-mono text-zinc-400 font-bold uppercase tracking-wider">
@@ -226,13 +223,12 @@ export default function HomeView({ onNavigate, onOpenQuote }: HomeViewProps) {
                 className="bg-[#121214] border border-zinc-800 rounded-none overflow-hidden flex flex-col justify-between group transition-all duration-200 hover:border-zinc-700"
               >
                 <div className="aspect-video bg-[#0A0A0B] overflow-hidden relative border-b border-zinc-800">
-                  <img
-                    src={service.imageUrl}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
+                  <div className="w-full h-full bg-gradient-to-br from-[#0c1322] to-[#040811] flex flex-col items-center justify-center p-4 text-center">
+                    <div className="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                      <Wrench className="w-5 h-5" />
+                    </div>
+                    <span className="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase">SERVICE CODE // RB-{service.id.toUpperCase()}</span>
+                  </div>
                   <span className="absolute top-3 left-3 bg-[#0A0A0B]/95 text-[9px] font-mono text-zinc-400 font-bold px-2.5 py-1 rounded-none border border-zinc-800 uppercase tracking-wider">
                     COMP.0{sIdx + 1} // {service.category.toUpperCase()}
                   </span>
@@ -324,13 +320,12 @@ export default function HomeView({ onNavigate, onOpenQuote }: HomeViewProps) {
                 className="bg-[#121214] border border-zinc-800 rounded-none overflow-hidden flex flex-col justify-between group transition-all duration-200 hover:border-zinc-700"
               >
                 <div className="aspect-video bg-[#0A0A0B] overflow-hidden relative border-b border-zinc-800">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    className="w-full h-full object-cover grayscale contrast-110 opacity-75 group-hover:scale-102 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
+                  <div className="w-full h-full bg-gradient-to-br from-[#0a0f1d] to-[#040811] flex flex-col items-center justify-center p-4 text-center">
+                    <div className="w-10 h-10 rounded-sm bg-[#148062]/10 border border-[#148062]/30 flex items-center justify-center text-[#148062] mb-2">
+                      <Compass className="w-5 h-5" />
+                    </div>
+                    <span className="text-[8px] font-mono tracking-widest text-[#148062] font-bold uppercase">PROJECT LOG // RB-{project.id.toUpperCase()}</span>
+                  </div>
                   <div className="absolute top-4 left-4 flex gap-1.5">
                     <span className="bg-[#0A0A0B]/95 backdrop-blur-sm border border-zinc-800 text-[9px] font-mono text-[#E0A32E] font-bold uppercase px-2.5 py-1 rounded-none tracking-wider">
                       {project.status.toUpperCase()}
@@ -469,14 +464,9 @@ export default function HomeView({ onNavigate, onOpenQuote }: HomeViewProps) {
               onClick={() => onNavigate('News')}
               className="bg-[#121214] border border-zinc-800 p-6 rounded-none flex gap-6 items-center cursor-pointer hover:border-zinc-700 transition-colors group"
             >
-              <div className="w-24 h-24 bg-[#0A0A0B] rounded-none overflow-hidden shrink-0 hidden sm:block border border-zinc-800">
-                <img
-                  src={article.imageUrl}
-                  alt={article.title}
-                  className="w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 transition-transform duration-300"
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                />
+              <div className="w-24 h-24 bg-gradient-to-br from-[#0a0f1d] to-[#040811] rounded-none overflow-hidden shrink-0 hidden sm:flex flex-col items-center justify-center border border-zinc-800 text-center">
+                <Wrench className="w-5 h-5 text-[#148062] mb-1" />
+                <span className="text-[7px] font-mono tracking-widest text-zinc-500 font-bold uppercase">NEWS</span>
               </div>
               <div className="space-y-2 min-w-0 flex-1">
                 <div className="flex items-center gap-2 text-[9px] font-mono text-zinc-500">
